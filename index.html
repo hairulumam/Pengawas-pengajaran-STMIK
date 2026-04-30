@@ -18,7 +18,6 @@
     --text: #e6edf3;
     --text-muted: #7d8590;
     --text-dim: #484f58;
-    --warning: #d29922;
     --danger: #f85149;
     --success: #3fb950;
     --radius: 12px;
@@ -35,7 +34,6 @@
     overflow-x: hidden;
   }
 
-  /* ─── Background grid ─── */
   body::before {
     content: '';
     position: fixed;
@@ -59,7 +57,7 @@
   /* ─── Header ─── */
   .header {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     animation: fadeDown 0.6s ease both;
   }
 
@@ -103,126 +101,13 @@
     line-height: 1.6;
   }
 
-  /* ─── Panduan / Guide ─── */
-  .guide-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--surface);
-    border: 1px solid var(--accent2-glow);
-    border-left: 3px solid var(--accent2);
-    border-radius: var(--radius);
-    padding: 16px 20px;
-    cursor: pointer;
-    margin-bottom: 12px;
-    transition: all 0.2s;
-    animation: fadeUp 0.6s 0.1s ease both;
-  }
-
-  .guide-toggle:hover { background: var(--surface2); }
-
-  .guide-toggle-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .guide-icon {
-    width: 36px; height: 36px;
-    background: var(--accent2-glow);
-    border: 1px solid rgba(88,166,255,0.2);
-    border-radius: var(--radius-sm);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-  }
-
-  .guide-toggle-left div { font-weight: 600; font-size: 14px; }
-  .guide-toggle-left small { display: block; color: var(--text-muted); font-size: 12px; margin-top: 2px; }
-
-  .chevron {
-    width: 20px; height: 20px;
-    border: 2px solid var(--text-dim);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    transition: transform 0.3s;
-    font-size: 10px;
-    color: var(--text-muted);
-    flex-shrink: 0;
-  }
-
-  .guide-toggle.open .chevron { transform: rotate(180deg); }
-
-  .guide-content {
-    display: none;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 24px;
-    margin-bottom: 24px;
-    animation: fadeDown 0.3s ease;
-  }
-
-  .guide-content.open { display: block; }
-
-  .guide-steps {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .step {
-    display: flex;
-    gap: 16px;
-    align-items: flex-start;
-  }
-
-  .step-num {
-    width: 32px; height: 32px;
-    background: linear-gradient(135deg, var(--accent), #1a7a2e);
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Space Mono', monospace;
-    font-size: 13px;
-    font-weight: 700;
-    flex-shrink: 0;
-    color: white;
-    box-shadow: 0 0 12px rgba(46,160,67,0.3);
-  }
-
-  .step-body strong {
-    display: block;
-    font-size: 14px;
-    font-weight: 600;
-    margin-bottom: 4px;
-  }
-
-  .step-body p {
-    font-size: 13px;
-    color: var(--text-muted);
-    line-height: 1.6;
-  }
-
-  .guide-note {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
-    background: rgba(210,153,34,0.08);
-    border: 1px solid rgba(210,153,34,0.2);
-    border-radius: var(--radius-sm);
-    padding: 12px 14px;
-    margin-top: 16px;
-    font-size: 13px;
-    color: var(--warning);
-    line-height: 1.6;
-  }
-
   /* ─── Form Card ─── */
   .form-card {
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
-    animation: fadeUp 0.6s 0.2s ease both;
+    animation: fadeUp 0.6s 0.1s ease both;
   }
 
   .form-header {
@@ -241,22 +126,14 @@
     border-radius: var(--radius-sm);
     display: flex; align-items: center; justify-content: center;
     font-size: 20px;
+    flex-shrink: 0;
   }
 
-  .form-header h2 {
-    font-size: 16px;
-    font-weight: 700;
-  }
-
-  .form-header p {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 2px;
-  }
+  .form-header h2 { font-size: 16px; font-weight: 700; }
+  .form-header p { font-size: 12px; color: var(--text-muted); margin-top: 2px; }
 
   .form-body { padding: 24px; }
 
-  /* ─── Section divider ─── */
   .section-label {
     display: flex;
     align-items: center;
@@ -278,7 +155,6 @@
 
   .section-label:first-of-type { margin-top: 0; }
 
-  /* ─── Field groups ─── */
   .field-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -307,7 +183,7 @@
 
   label .req { color: var(--danger); font-size: 14px; line-height: 1; }
 
-  input, select, textarea {
+  input, select {
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
@@ -321,24 +197,22 @@
     -webkit-appearance: none;
   }
 
-  input:focus, select:focus, textarea:focus {
+  input:focus, select:focus {
     border-color: var(--accent);
     box-shadow: 0 0 0 3px var(--accent-glow);
   }
 
-  input::placeholder, textarea::placeholder { color: var(--text-dim); }
-
+  input::placeholder { color: var(--text-dim); }
   select option { background: var(--surface2); }
 
-  textarea { resize: vertical; min-height: 80px; line-height: 1.6; }
-
-  .hint {
-    font-size: 11.5px;
-    color: var(--text-dim);
-    line-height: 1.5;
+  /* date & time input fix untuk semua browser */
+  input[type="date"], input[type="time"] {
+    color-scheme: dark;
   }
 
-  /* ─── Submit button ─── */
+  .hint { font-size: 11.5px; color: var(--text-dim); line-height: 1.5; }
+
+  /* ─── Submit ─── */
   .submit-wrap {
     margin-top: 28px;
     padding-top: 24px;
@@ -356,36 +230,20 @@
     font-weight: 700;
     padding: 14px;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
     transition: opacity 0.2s, transform 0.1s;
     letter-spacing: 0.3px;
     box-shadow: 0 4px 20px rgba(46,160,67,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   }
 
   .btn-submit:hover { opacity: 0.9; }
   .btn-submit:active { transform: scale(0.99); }
-  .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
 
-  .btn-submit .btn-text { display: flex; align-items: center; justify-content: center; gap: 8px; }
-  .btn-submit .spinner { display: none; }
-
-  .btn-submit.loading .btn-text { display: none; }
-  .btn-submit.loading .spinner {
-    display: flex; align-items: center; justify-content: center; gap: 8px;
-  }
-
-  .spin {
-    width: 18px; height: 18px;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-top-color: white;
-    border-radius: 50%;
-    animation: spin 0.7s linear infinite;
-  }
-
-  /* ─── Toast / Alert ─── */
+  /* ─── Toast ─── */
   .toast {
-    display: none;
     margin-top: 16px;
     border-radius: var(--radius-sm);
     padding: 14px 16px;
@@ -393,31 +251,31 @@
     line-height: 1.6;
     font-weight: 500;
     animation: fadeDown 0.3s ease;
+    display: none;
+    gap: 10px;
+    align-items: flex-start;
   }
 
   .toast.success {
-    display: flex;
-    gap: 10px;
     background: rgba(63,185,80,0.1);
     border: 1px solid rgba(63,185,80,0.3);
     color: var(--success);
   }
 
   .toast.error {
-    display: flex;
-    gap: 10px;
     background: rgba(248,81,73,0.1);
     border: 1px solid rgba(248,81,73,0.3);
     color: var(--danger);
   }
 
-  /* ─── Config modal ─── */
+  /* ─── Confirm Modal ─── */
   .modal-overlay {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.7);
-    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.78);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     z-index: 100;
     align-items: center;
     justify-content: center;
@@ -431,28 +289,84 @@
     border: 1px solid var(--border);
     border-radius: var(--radius);
     width: 100%;
-    max-width: 480px;
+    max-width: 440px;
     padding: 28px;
-    animation: fadeDown 0.3s ease;
+    animation: fadeDown 0.25s ease;
+    max-height: 92vh;
+    overflow-y: auto;
+  }
+
+  .modal-icon {
+    width: 52px; height: 52px;
+    background: rgba(210,153,34,0.12);
+    border: 1px solid rgba(210,153,34,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px;
+    margin: 0 auto 16px;
   }
 
   .modal h3 {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
+    text-align: center;
     margin-bottom: 6px;
   }
 
-  .modal p { font-size: 13px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.6; }
+  .modal-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 18px;
+  }
 
-  .modal .field { margin-bottom: 16px; }
+  .modal-summary {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 12.5px;
+  }
+
+  .s-label {
+    color: var(--text-dim);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-top: 1px;
+    min-width: 110px;
+  }
+
+  .s-val {
+    color: var(--text);
+    font-weight: 600;
+    text-align: right;
+    word-break: break-word;
+  }
+
+  .summary-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2px 0;
+  }
 
   .modal-actions {
     display: flex;
     gap: 10px;
-    margin-top: 20px;
   }
 
-  .btn-cancel {
+  .btn-koreksi {
     flex: 1;
     background: var(--surface2);
     border: 1px solid var(--border);
@@ -461,94 +375,102 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
     font-weight: 600;
-    padding: 11px;
+    padding: 12px;
     cursor: pointer;
     transition: background 0.2s;
   }
 
-  .btn-cancel:hover { background: var(--border); }
+  .btn-koreksi:hover { background: var(--border); }
 
-  .btn-save {
-    flex: 1;
-    background: var(--accent2-glow);
-    border: 1px solid rgba(88,166,255,0.3);
+  .btn-confirm {
+    flex: 1.4;
+    background: linear-gradient(135deg, var(--accent), #1a7a2e);
+    border: none;
     border-radius: var(--radius-sm);
-    color: var(--accent2);
+    color: white;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 14px;
     font-weight: 700;
-    padding: 11px;
+    padding: 12px;
     cursor: pointer;
-    transition: background 0.2s;
-  }
-
-  .btn-save:hover { background: rgba(88,166,255,0.15); }
-
-  /* ─── Config bar ─── */
-  .config-bar {
+    transition: opacity 0.2s;
+    box-shadow: 0 2px 14px rgba(46,160,67,0.3);
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 12px 16px;
-    margin-bottom: 12px;
-    animation: fadeUp 0.5s ease both;
+    justify-content: center;
+    gap: 7px;
   }
 
-  .config-status {
-    display: flex;
+  .btn-confirm:hover { opacity: 0.9; }
+  .btn-confirm:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .c-spinner { display: none; align-items: center; gap: 7px; }
+  .btn-confirm.loading .c-text { display: none; }
+  .btn-confirm.loading .c-spinner { display: flex; }
+
+  .c-spin {
+    width: 15px; height: 15px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+  }
+
+  /* ─── Autofill Banner ─── */
+  .autofill-banner {
+    display: none;
+    background: rgba(88,166,255,0.08);
+    border: 1px solid rgba(88,166,255,0.25);
+    border-radius: var(--radius-sm);
+    padding: 12px 16px;
+    margin-bottom: 20px;
     align-items: center;
     gap: 10px;
     font-size: 13px;
-  }
-
-  .config-dot {
-    width: 8px; height: 8px;
-    border-radius: 50%;
-    background: var(--text-dim);
-    transition: background 0.3s;
-  }
-
-  .config-dot.connected { background: var(--accent); box-shadow: 0 0 6px var(--accent); }
-
-  .btn-config {
-    background: none;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    color: var(--text-muted);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    padding: 6px 12px;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .btn-config:hover {
-    border-color: var(--accent2);
     color: var(--accent2);
+    animation: fadeDown 0.4s ease;
   }
 
-  /* ─── Animations ─── */
-  @keyframes fadeDown {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
+  .autofill-banner.show { display: flex; }
+
+  .autofill-banner .ab-icon { font-size: 18px; flex-shrink: 0; }
+
+  .autofill-banner .ab-text { flex: 1; line-height: 1.5; }
+
+  .autofill-banner .ab-text strong { font-weight: 700; }
+
+  .btn-clear-saved {
+    background: rgba(248,81,73,0.12);
+    border: 1px solid rgba(248,81,73,0.25);
+    border-radius: 6px;
+    color: var(--danger);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+    flex-shrink: 0;
   }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to { opacity: 1; transform: translateY(0); }
+  .btn-clear-saved:hover { background: rgba(248,81,73,0.22); }
+
+  /* Highlight field yang diisi otomatis */
+  .autofilled {
+    border-color: rgba(88,166,255,0.45) !important;
+    background: rgba(88,166,255,0.04) !important;
+    transition: border-color 0.4s, background 0.4s;
   }
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.5; transform: scale(0.85); }
-  }
-
-  @keyframes spin {
-    to { transform: rotate(360deg); }
+  /* Tandai field yang perlu diisi tiap pengiriman */
+  .field-fresh label::after {
+    content: ' — perlu diperbarui';
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--accent);
+    letter-spacing: 0;
+    text-transform: none;
   }
 
   /* ─── Footer ─── */
@@ -557,8 +479,25 @@
     margin-top: 32px;
     font-size: 12px;
     color: var(--text-dim);
-    animation: fadeUp 0.6s 0.4s ease both;
+    animation: fadeUp 0.6s 0.3s ease both;
   }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%       { opacity: 0.5; transform: scale(0.85); }
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
 </style>
 </head>
 <body>
@@ -569,71 +508,7 @@
   <div class="header">
     <div class="badge">Sistem Laporan Akademik</div>
     <h1>Laporan <span>Pengawas Kelas</span></h1>
-    <p class="subtitle">Isi form di bawah setelah selesai mengawas.<br>Data akan langsung tersimpan ke sistem admin kampus.</p>
-  </div>
-
-  <!-- Config bar -->
-  <div class="config-bar">
-    <div class="config-status">
-      <div class="config-dot" id="configDot"></div>
-      <span id="configLabel" style="color:var(--text-muted)">Google Sheets belum terhubung</span>
-    </div>
-    <button class="btn-config" onclick="openModal()">⚙ Konfigurasi API</button>
-  </div>
-
-  <!-- Panduan Penggunaan -->
-  <div class="guide-toggle" id="guideToggle" onclick="toggleGuide()">
-    <div class="guide-toggle-left">
-      <div class="guide-icon">📖</div>
-      <div>
-        <div>Panduan Penggunaan</div>
-        <small>Baca sebelum mengisi form — klik untuk buka</small>
-      </div>
-    </div>
-    <div class="chevron">▾</div>
-  </div>
-
-  <div class="guide-content" id="guideContent">
-    <div class="guide-steps">
-      <div class="step">
-        <div class="step-num">1</div>
-        <div class="step-body">
-          <strong>Pastikan API sudah dikonfigurasi</strong>
-          <p>Klik tombol <b>⚙ Konfigurasi API</b> di atas dan masukkan Google Sheets ID serta API Key dari admin kampus. Lakukan sekali saja, data akan tersimpan di browser.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">2</div>
-        <div class="step-body">
-          <strong>Isi identitas diri dengan lengkap</strong>
-          <p>Masukkan nama lengkap, NIM, program studi, dan nomor HP aktif. Pastikan semua data sesuai dengan data akademik.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">3</div>
-        <div class="step-body">
-          <strong>Isi data pengawasan</strong>
-          <p>Pilih nama dosen yang diampu, masukkan tanggal pengawasan, dan tulis keterangan kelas (contoh: "Kelas A – UTS Pemrograman Web").</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">4</div>
-        <div class="step-body">
-          <strong>Isi data rekening untuk pencairan honor</strong>
-          <p>Masukkan nomor rekening, nama bank, dan nama pemilik rekening sesuai buku tabungan. Data ini digunakan admin untuk transfer honor.</p>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num">5</div>
-        <div class="step-body">
-          <strong>Klik Kirim Laporan</strong>
-          <p>Setelah semua kolom terisi, klik tombol <b>Kirim Laporan</b>. Tunggu konfirmasi hijau bahwa data berhasil dikirim. Tidak perlu kirim ulang jika sudah muncul konfirmasi.</p>
-        </div>
-      </div>
-    </div>
-    <div class="guide-note">
-      ⚠️ <span>Kirim laporan segera setelah selesai mengawas. Data yang sudah dikirim akan diverifikasi admin sebelum honor dicairkan. Jika ada pertanyaan, hubungi admin akademik kampus.</span>
-    </div>
+    <p class="subtitle">Isi form di bawah setelah selesai mengawas.<br>Data akan langsung tersimpan ke Google Sheets admin kampus.</p>
   </div>
 
   <!-- Form Card -->
@@ -647,9 +522,20 @@
     </div>
 
     <div class="form-body">
-      <form id="laporanForm" onsubmit="submitForm(event)">
 
-        <!-- Identitas Mahasiswa -->
+      <!-- Banner data tersimpan -->
+      <div class="autofill-banner" id="autofillBanner">
+        <span class="ab-icon">💾</span>
+        <span class="ab-text">
+          <strong>Data kamu sudah diisi otomatis</strong> dari pengiriman sebelumnya.<br>
+          Cukup perbarui <strong>Tanggal</strong>, <strong>Waktu</strong>, dan <strong>Keterangan</strong> lalu kirim.
+        </span>
+        <button type="button" class="btn-clear-saved" onclick="clearSavedData()">🗑 Reset</button>
+      </div>
+
+      <form id="laporanForm" onsubmit="onFormSubmit(event)">
+
+        <!-- 01 Identitas -->
         <div class="section-label">01 / Identitas Mahasiswa</div>
 
         <div class="field-row">
@@ -670,8 +556,6 @@
               <option value="">-- Pilih Prodi --</option>
               <option>Teknik Informatika</option>
               <option>Sistem Informasi</option>
-              <option>Manajemen Informatika</option>
-              <option>Komputerisasi Akuntansi</option>
             </select>
           </div>
           <div class="field">
@@ -680,37 +564,32 @@
           </div>
         </div>
 
-        <!-- Data Pengawasan -->
+        <!-- 02 Data Pengawasan -->
         <div class="section-label">02 / Data Pengawasan</div>
 
         <div class="field">
           <label>Nama Dosen <span class="req">*</span></label>
-          <select id="dosen" required>
-            <option value="">-- Pilih Dosen --</option>
-            <option>Q Fadlan, M.Kom., S.ST</option>
-            <option>Hendri Karisma, S.Kom., M.T</option>
-            <option>Dosen Lainnya</option>
-          </select>
+          <input type="text" id="dosen" placeholder="Tulis nama lengkap dosen" required>
         </div>
 
         <div class="field-row">
-          <div class="field">
+          <div class="field field-fresh">
             <label>Tanggal Pengawasan <span class="req">*</span></label>
             <input type="date" id="tanggal" required>
           </div>
-          <div class="field">
+          <div class="field field-fresh">
             <label>Waktu Mulai <span class="req">*</span></label>
             <input type="time" id="waktu" required>
           </div>
         </div>
 
-        <div class="field">
+        <div class="field field-fresh">
           <label>Keterangan Kelas <span class="req">*</span></label>
           <input type="text" id="keterangan" placeholder="Contoh: Kelas A – UTS Pemrograman Web" required>
-          <span class="hint">Sebutkan nama mata kuliah dan jenis kegiatan (UTS/UAS/Kelas biasa)</span>
+          <span class="hint">Sebutkan nama mata kuliah dan jenis kegiatan (UTS / UAS / Kelas biasa)</span>
         </div>
 
-        <!-- Rekening Honor -->
+        <!-- 03 Rekening -->
         <div class="section-label">03 / Rekening Pencairan Honor</div>
 
         <div class="field-row">
@@ -741,22 +620,18 @@
 
         <!-- Submit -->
         <div class="submit-wrap">
-          <button type="submit" class="btn-submit" id="btnSubmit">
-            <div class="btn-text">
-              <span>🚀</span>
-              <span>Kirim Laporan</span>
-            </div>
-            <div class="spinner">
-              <div class="spin"></div>
-              <span>Mengirim data...</span>
-            </div>
+          <button type="submit" class="btn-submit">
+            <span>🚀</span>
+            <span>Kirim Laporan</span>
           </button>
 
           <div class="toast success" id="toastSuccess">
-            ✅ <span>Laporan berhasil dikirim! Data sudah masuk ke Google Sheets admin. Terima kasih.</span>
+            <span>✅</span>
+            <span id="successMsg">Laporan berhasil dikirim! Data sudah masuk ke Google Sheets admin. Terima kasih.</span>
           </div>
           <div class="toast error" id="toastError">
-            ❌ <span id="errorMsg">Gagal mengirim. Periksa konfigurasi API atau koneksi internet.</span>
+            <span>❌</span>
+            <span id="errorMsg">Gagal mengirim.</span>
           </div>
         </div>
 
@@ -770,173 +645,215 @@
 
 </div>
 
-<!-- Config Modal -->
-<div class="modal-overlay" id="modalOverlay">
+<!-- Modal Konfirmasi Pengiriman -->
+<div class="modal-overlay" id="confirmOverlay">
   <div class="modal">
-    <h3>⚙ Konfigurasi Google Sheets API</h3>
-    <p>
-      Masukkan Spreadsheet ID dan API Key dari admin kampus.<br>
-      Data ini hanya tersimpan di browser Anda (localStorage).
-    </p>
-    <div class="field">
-      <label>Spreadsheet ID</label>
-      <input type="text" id="inputSpreadsheetId" placeholder="Contoh: 1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgVE2upms">
-      <span class="hint">Salin dari URL Google Sheet: docs.google.com/spreadsheets/d/<b>[ID ini]</b>/edit</span>
-    </div>
-    <div class="field">
-      <label>Google Sheets API Key</label>
-      <input type="text" id="inputApiKey" placeholder="Contoh: AIzaSy...">
-      <span class="hint">Dapatkan dari Google Cloud Console (lihat panduan setup).</span>
-    </div>
-    <div class="field">
-      <label>Nama Sheet / Tab</label>
-      <input type="text" id="inputSheetName" placeholder="Pengawas Kelas" value="Pengawas Kelas">
-      <span class="hint">Nama tab sheet di Google Sheets (default: Pengawas Kelas)</span>
-    </div>
+    <div class="modal-icon">⚠️</div>
+    <h3>Apakah Anda yakin mengirim laporan?</h3>
+    <p class="modal-desc">Periksa kembali data di bawah sebelum dikirim.<br>Data yang sudah dikirim <strong>tidak dapat diubah</strong>.</p>
+
+    <div class="modal-summary" id="modalSummary"></div>
+
     <div class="modal-actions">
-      <button class="btn-cancel" onclick="closeModal()">Batal</button>
-      <button class="btn-save" onclick="saveConfig()">💾 Simpan Konfigurasi</button>
+      <button class="btn-koreksi" onclick="closeConfirm()">✏️ Koreksi</button>
+      <button class="btn-confirm" id="btnConfirm" onclick="doSubmit()">
+        <span class="c-text">✅ Ya, Kirim</span>
+        <span class="c-spinner"><div class="c-spin"></div> Mengirim...</span>
+      </button>
     </div>
   </div>
 </div>
 
 <script>
-// ─── Config ───────────────────────────────────────────────
-function loadConfig() {
-  const id = localStorage.getItem('gs_spreadsheet_id');
-  const key = localStorage.getItem('gs_api_key');
-  const sheet = localStorage.getItem('gs_sheet_name') || 'Pengawas Kelas';
+  var SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydtvoPaEJvfrWKM6yu2vefZ797ZTbucfIOWC0LxDoLKAs9c6i9ADV1uAJQ8lZOKSgF2A/exec";
+  var pendingRow = null;
 
-  if (id && key) {
-    document.getElementById('configDot').classList.add('connected');
-    document.getElementById('configLabel').textContent = 'Google Sheets terhubung ✓';
-    document.getElementById('configLabel').style.color = 'var(--accent)';
-  }
-  document.getElementById('inputSpreadsheetId').value = id || '';
-  document.getElementById('inputApiKey').value = key || '';
-  document.getElementById('inputSheetName').value = sheet;
-}
+  // Field yang disimpan otomatis (identitas + rekening — jarang berubah)
+  var SAVED_FIELDS = ['nama','nim','prodi','noHp','dosen','namaBank','noRekening','namaPemilik'];
+  var LS_KEY = 'pengawas_saved_v1';
 
-function saveConfig() {
-  const id = document.getElementById('inputSpreadsheetId').value.trim();
-  const key = document.getElementById('inputApiKey').value.trim();
-  const sheet = document.getElementById('inputSheetName').value.trim() || 'Pengawas Kelas';
-
-  if (!id || !key) { alert('Spreadsheet ID dan API Key tidak boleh kosong.'); return; }
-
-  localStorage.setItem('gs_spreadsheet_id', id);
-  localStorage.setItem('gs_api_key', key);
-  localStorage.setItem('gs_sheet_name', sheet);
-  closeModal();
-  loadConfig();
-}
-
-function openModal() {
-  document.getElementById('modalOverlay').classList.add('open');
-}
-
-function closeModal() {
-  document.getElementById('modalOverlay').classList.remove('open');
-}
-
-document.getElementById('modalOverlay').addEventListener('click', function(e) {
-  if (e.target === this) closeModal();
-});
-
-// ─── Panduan toggle ────────────────────────────────────────
-function toggleGuide() {
-  const toggle = document.getElementById('guideToggle');
-  const content = document.getElementById('guideContent');
-  toggle.classList.toggle('open');
-  content.classList.toggle('open');
-}
-
-// ─── Submit ────────────────────────────────────────────────
-async function submitForm(e) {
-  e.preventDefault();
-
-  const spreadsheetId = localStorage.getItem('gs_spreadsheet_id');
-  const apiKey = localStorage.getItem('gs_api_key');
-  const sheetName = localStorage.getItem('gs_sheet_name') || 'Pengawas Kelas';
-
-  if (!spreadsheetId || !apiKey) {
-    showToast('error', 'Konfigurasi API belum diisi. Klik ⚙ Konfigurasi API terlebih dahulu.');
-    return;
+  function getTodayWIB() {
+    var now = new Date();
+    var offset = 7 * 60;
+    var local  = new Date(now.getTime() + (offset - (-now.getTimezoneOffset())) * 60000);
+    return local.toISOString().split('T')[0];
   }
 
-  const btn = document.getElementById('btnSubmit');
-  btn.disabled = true;
-  btn.classList.add('loading');
-  hideToasts();
+  function formatTanggal(v) {
+    if (!v) return '-';
+    var p = v.split('-');
+    return p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : v;
+  }
 
-  // Collect data
-  const now = new Date();
-  const timestamp = now.toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
+  /* ── Simpan data identitas & rekening ke localStorage ── */
+  function saveUserData() {
+    var data = {};
+    SAVED_FIELDS.forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) data[id] = el.value;
+    });
+    try { localStorage.setItem(LS_KEY, JSON.stringify(data)); } catch(e) {}
+  }
 
-  const rowData = [
-    timestamp,
-    document.getElementById('nama').value.trim(),
-    document.getElementById('nim').value.trim(),
-    document.getElementById('prodi').value,
-    document.getElementById('noHp').value.trim(),
-    document.getElementById('dosen').value,
-    document.getElementById('tanggal').value,
-    document.getElementById('waktu').value,
-    document.getElementById('keterangan').value.trim(),
-    document.getElementById('namaBank').value,
-    document.getElementById('noRekening').value.trim(),
-    document.getElementById('namaPemilik').value.trim(),
-    'Belum Diverifikasi'   // Status default untuk admin
-  ];
+  /* ── Muat data tersimpan ke form ── */
+  function loadSavedData() {
+    var raw;
+    try { raw = localStorage.getItem(LS_KEY); } catch(e) { return; }
+    if (!raw) return;
 
-  // Append to Google Sheets via API
-  const range = encodeURIComponent(`${sheetName}!A:M`);
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}:append?valueInputOption=USER_ENTERED&key=${apiKey}`;
+    var data;
+    try { data = JSON.parse(raw); } catch(e) { return; }
 
-  try {
-    const res = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ values: [rowData] })
+    var filled = 0;
+    SAVED_FIELDS.forEach(function(id) {
+      if (!data[id]) return;
+      var el = document.getElementById(id);
+      if (!el) return;
+      el.value = data[id];
+      el.classList.add('autofilled');
+      // Hapus highlight setelah animasi
+      setTimeout(function() { el.classList.remove('autofilled'); }, 2000);
+      filled++;
     });
 
-    if (!res.ok) {
-      const err = await res.json();
-      throw new Error(err.error?.message || 'HTTP ' + res.status);
+    if (filled > 0) {
+      document.getElementById('autofillBanner').classList.add('show');
     }
-
-    showToast('success', 'Laporan berhasil dikirim! Data sudah masuk ke Google Sheets admin. Terima kasih.');
-    e.target.reset();
-
-  } catch (err) {
-    showToast('error', `Gagal mengirim: ${err.message}. Periksa konfigurasi API atau koneksi internet.`);
-  } finally {
-    btn.disabled = false;
-    btn.classList.remove('loading');
   }
-}
 
-function showToast(type, msg) {
-  hideToasts();
-  if (type === 'success') {
-    document.getElementById('toastSuccess').style.display = 'flex';
-    document.getElementById('toastSuccess').querySelector('span').textContent = msg;
-  } else {
-    document.getElementById('toastError').style.display = 'flex';
-    document.getElementById('errorMsg').textContent = msg;
+  /* ── Reset data tersimpan ── */
+  function clearSavedData() {
+    if (!confirm('Hapus semua data tersimpan? Form akan kosong kembali.')) return;
+    try { localStorage.removeItem(LS_KEY); } catch(e) {}
+    document.getElementById('laporanForm').reset();
+    document.getElementById('tanggal').value = getTodayWIB();
+    document.getElementById('autofillBanner').classList.remove('show');
   }
-}
 
-function hideToasts() {
-  document.getElementById('toastSuccess').style.display = 'none';
-  document.getElementById('toastError').style.display = 'none';
-}
+  // Step 1: validasi → simpan data → tampilkan modal konfirmasi
+  function onFormSubmit(e) {
+    e.preventDefault();
 
-// ─── Init ──────────────────────────────────────────────────
-loadConfig();
+    var now  = new Date();
+    var ts   = now.toLocaleString('id-ID', { timeZone: 'Asia/Jakarta' });
 
-// Set default date to today
-document.getElementById('tanggal').value = new Date().toISOString().split('T')[0];
+    var nama        = document.getElementById('nama').value.trim();
+    var nim         = document.getElementById('nim').value.trim();
+    var prodi       = document.getElementById('prodi').value;
+    var noHp        = document.getElementById('noHp').value.trim();
+    var dosen       = document.getElementById('dosen').value.trim();
+    var tanggal     = document.getElementById('tanggal').value;
+    var waktu       = document.getElementById('waktu').value;
+    var keterangan  = document.getElementById('keterangan').value.trim();
+    var namaBank    = document.getElementById('namaBank').value;
+    var noRekening  = document.getElementById('noRekening').value.trim();
+    var namaPemilik = document.getElementById('namaPemilik').value.trim();
+
+    pendingRow = [ts, nama, nim, prodi, noHp, dosen, tanggal, waktu,
+                  keterangan, namaBank, noRekening, namaPemilik, 'Belum Diverifikasi'];
+
+    var rows = [
+      ['Nama Lengkap',  nama],
+      ['NIM',           nim],
+      ['Program Studi', prodi],
+      ['No. HP',        noHp],
+      null,
+      ['Nama Dosen',    dosen],
+      ['Tanggal',       formatTanggal(tanggal)],
+      ['Waktu Mulai',   waktu + ' WIB'],
+      ['Keterangan',    keterangan],
+      null,
+      ['Bank',          namaBank],
+      ['No. Rekening',  noRekening],
+      ['Pemilik Rek.',  namaPemilik],
+    ];
+
+    var html = rows.map(function(r) {
+      if (!r) return '<div class="summary-divider"></div>';
+      return '<div class="summary-row">' +
+               '<span class="s-label">' + r[0] + '</span>' +
+               '<span class="s-val">'   + (r[1] || '-') + '</span>' +
+             '</div>';
+    }).join('');
+
+    document.getElementById('modalSummary').innerHTML = html;
+    document.getElementById('confirmOverlay').classList.add('open');
+  }
+
+  function closeConfirm() {
+    document.getElementById('confirmOverlay').classList.remove('open');
+    pendingRow = null;
+  }
+
+  document.getElementById('confirmOverlay').addEventListener('click', function(e) {
+    if (e.target === this) closeConfirm();
+  });
+
+  // Step 2: kirim data → simpan identitas ke localStorage
+  async function doSubmit() {
+    if (!pendingRow) return;
+
+    var btn = document.getElementById('btnConfirm');
+    btn.disabled = true;
+    btn.classList.add('loading');
+
+    try {
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ row: pendingRow })
+      });
+
+      // Simpan data identitas & rekening setelah berhasil kirim
+      saveUserData();
+
+      closeConfirm();
+
+      // Reset hanya field yang perlu diisi ulang tiap pengiriman
+      document.getElementById('tanggal').value = getTodayWIB();
+      document.getElementById('waktu').value = '';
+      document.getElementById('keterangan').value = '';
+
+      // Tampilkan banner autofill untuk pengiriman berikutnya
+      document.getElementById('autofillBanner').classList.add('show');
+
+      showToast('success', 'Laporan berhasil dikirim! Data sudah masuk ke Google Sheets admin. Untuk laporan berikutnya, tinggal isi Tanggal, Waktu & Keterangan saja.');
+
+    } catch (err) {
+      closeConfirm();
+      showToast('error', 'Gagal mengirim: ' + err.message + '. Periksa koneksi internet Anda.');
+    } finally {
+      btn.disabled = false;
+      btn.classList.remove('loading');
+    }
+  }
+
+  function showToast(type, msg) {
+    hideToasts();
+    if (type === 'success') {
+      var el = document.getElementById('toastSuccess');
+      el.style.display = 'flex';
+      document.getElementById('successMsg').textContent = msg;
+    } else {
+      var el = document.getElementById('toastError');
+      el.style.display = 'flex';
+      document.getElementById('errorMsg').textContent = msg;
+    }
+    setTimeout(function() {
+      (document.getElementById(type === 'success' ? 'toastSuccess' : 'toastError'))
+        .scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 100);
+  }
+
+  function hideToasts() {
+    document.getElementById('toastSuccess').style.display = 'none';
+    document.getElementById('toastError').style.display  = 'none';
+  }
+
+  // Init — muat data tersimpan, set tanggal hari ini
+  document.getElementById('tanggal').value = getTodayWIB();
+  loadSavedData();
 </script>
 </body>
 </html>
